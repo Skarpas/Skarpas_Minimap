@@ -1,0 +1,6 @@
+PyQt6
+Pillow
+keyboard
+mss
+numpy
+pystray
