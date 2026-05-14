@@ -27,11 +27,12 @@ jobs:
         run: pyinstaller "Skarpas Minimap v1.0.spec"
 
       - name: Publicar release
-        shell: pwsh
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release delete latest --yes 2>$null; $true
-          git tag -f latest
-          git push -f origin latest
-          gh release create latest "dist/Skarpas Minimap v1.0.exe" --title "Ultima version" --notes "Compilado automaticamente al subir cambios."
+        uses: ncipollo/release-action@v1
+        with:
+          tag: latest
+          name: Ultima version
+          body: Compilado automaticamente al subir cambios.
+          artifacts: "dist/Skarpas Minimap v1.0.exe"
+          allowUpdates: true
+          removeArtifacts: true
+          token: ${{ secrets.GITHUB_TOKEN }}
