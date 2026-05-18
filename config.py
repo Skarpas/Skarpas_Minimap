@@ -16,10 +16,10 @@ CONFIG_PATH = os.path.join(_BASE, "config.json")
 @dataclass
 class Config:
     # Capture region (pixels on source screen)
-    capture_x: int = 2058
+    capture_x: int = 2260
     capture_y: int = 0
-    capture_w: int = 400
-    capture_h: int = 400
+    capture_w: int = 300
+    capture_h: int = 300
 
     # Overlay window position (CENTER of the overlay window)
     overlay_cx: int = 1280
@@ -44,7 +44,7 @@ class Config:
     corner_radius: int = 0     # 0 = square, up to min(w,h)/2 = circle
 
     # Source cover (solid overlay drawn over the captured region)
-    source_cover_enabled: bool = False
+    source_cover_enabled: bool = True
     source_cover_color: str = "#00537d"
 
     # Behaviour
